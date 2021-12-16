@@ -1,4 +1,4 @@
-import { Document, FilterQuery, Model, UpdateQuery } from 'mongoose';
+import { AnyKeys, Document, FilterQuery, Model, UpdateQuery } from 'mongoose';
 
 export abstract class EntityRepository<T extends Document> {
   constructor(protected readonly entityModel: Model<T>) {}
@@ -20,7 +20,7 @@ export abstract class EntityRepository<T extends Document> {
     return this.entityModel.find(entityFilterQuery);
   }
 
-  async create(createEntityData: any): Promise<T> {
+  async create(createEntityData: AnyKeys<T>): Promise<T> {
     const entity = new this.entityModel(createEntityData);
     return entity.save()
   }
