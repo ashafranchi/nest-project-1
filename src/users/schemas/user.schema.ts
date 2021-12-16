@@ -15,6 +15,9 @@ export class User {
     age: number;
 
     @Prop([String])
+    dogNames: string[]
+
+    @Prop([String])
     favoriteFoods: string[]
 }
 

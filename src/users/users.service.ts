@@ -22,7 +22,8 @@ export class UsersService {
             userId: uuidv4(),
             email,
             age,
-            favoriteFoods: []
+            favoriteFoods: [],
+            dogNames: []
         })
     }
 
