@@ -13,7 +13,7 @@ import { ConfigModule } from '@nestjs/config';
       isGlobal: true,
     }),
     PetsModule,
-    // GroomersModule,
+    GroomersModule,
     DatabaseModule
   ],
   controllers: [AppController],
