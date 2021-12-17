@@ -6,7 +6,9 @@ import { GroomersModule } from './groomers/groomers.module';
 import { PetsModule } from './pets/pets.module';
 
 @Module({
-  imports: [MongooseModule.forRoot('mongodb://localhost/demo'), PetsModule, GroomersModule],
+  imports: [
+    MongooseModule.forRoot('mongodb://localhost/demo'),
+    PetsModule],
   controllers: [AppController],
   providers: [AppService],
 })

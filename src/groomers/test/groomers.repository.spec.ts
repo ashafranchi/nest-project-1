@@ -1,9 +1,9 @@
 import { Test } from '@nestjs/testing';
-import { GroomersRepository } from '../Groomers.repository';
+import { GroomersRepository } from '../groomers.repository';
 import { getModelToken } from '@nestjs/mongoose';
-import { Groomer } from "../schemas/Groomer.schema";
-import { GroomerModel } from './support/Groomer.model';
-import { groomerStub } from "./stubs/Groomer.stub";
+import { Groomer } from "../schemas/groomer.schema";
+import { GroomerModel } from './support/groomer.model';
+import { groomerStub } from "./stubs/groomer.stub";
 import { FilterQuery } from "mongoose";
 
 describe('GroomersRepository', () => {

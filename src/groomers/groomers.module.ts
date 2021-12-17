@@ -1,9 +1,9 @@
 import { Module } from "@nestjs/common";
 import { MongooseModule } from "@nestjs/mongoose"
-import { Groomer, GroomerSchema } from "./schemas/Groomer.schema"
-import { GroomersController } from "./Groomers.controller";
-import { GroomersRepository } from "./Groomers.repository";
-import { GroomersService } from "./Groomers.service"
+import { Groomer, GroomerSchema } from "./schemas/groomer.schema"
+import { GroomersController } from "./groomers.controller";
+import { GroomersRepository } from "./groomers.repository";
+import { GroomersService } from "./groomers.service"
 
 @Module({
     imports: [MongooseModule.forFeature([{ name: Groomer.name, schema: GroomerSchema }])],

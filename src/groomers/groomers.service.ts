@@ -17,9 +17,10 @@ export class GroomersService {
         return this.groomersRepository.find({});
     }
 
-    async createGroomer(email: string, dogName: string, age: number): Promise<Groomer> {
+    async createGroomer(groomerName: string, email: string, age: number): Promise<Groomer> {
         return this.groomersRepository.create({
             groomerId: uuidv4(),
+            groomerName,
             email,
             age
         })
