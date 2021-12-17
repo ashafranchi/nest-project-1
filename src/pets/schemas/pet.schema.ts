@@ -6,13 +6,19 @@ export type PetDocument = Pet & Document;
 @Schema()
 export class Pet {
     @Prop()
-    userId: string;
+    petId: string;
 
     @Prop()
-    name: string;
+    ownerName: string;
 
     @Prop()
-    vaccinated: boolean;
+    ownerEmail: string;
+
+    @Prop()
+    dogName: string;
+
+    @Prop()
+    rabiesVaccine: boolean;
 
     @Prop()
     age: number;
@@ -21,4 +27,4 @@ export class Pet {
     breed: string[]
 }
 
-export const UserSchema = SchemaFactory.createForClass(Pet);
+export const PetSchema = SchemaFactory.createForClass(Pet);
