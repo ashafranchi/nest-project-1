@@ -77,7 +77,7 @@ describe('PetsController', () => {
       })
 
       test('then it should call petsService', () => {
-        expect(petsService.createPet).toHaveBeenCalledWith(createPetDto.ownerEmail, createPetDto.dogName);
+        expect(petsService.createPet).toHaveBeenCalledWith(createPetDto.ownerEmail, createPetDto.dogName, createPetDto.rabiesVaccine, createPetDto.ownerName);
       })
 
       test('then it should return a pet', () => {
