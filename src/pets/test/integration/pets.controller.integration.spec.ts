@@ -51,8 +51,8 @@ describe('PetsController', () => {
             expect(response.status).toBe(201);
             expect(response.body).toMatchObject(createPetDto);
     
-            const user = await dbConnection.collection('pets').findOne({ ownerEmail: createPetDto.ownerEmail });
-            expect(user).toMatchObject(createPetDto);
+            const pet = await dbConnection.collection('pets').findOne({ ownerEmail: createPetDto.ownerEmail });
+            expect(pet).toMatchObject(createPetDto);
         })
     })
 })
