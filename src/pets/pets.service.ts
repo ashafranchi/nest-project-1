@@ -9,8 +9,8 @@ import { PetsRepository } from "./pets.repository";
 export class PetsService {
     constructor(private readonly petsRepository: PetsRepository) {}
 
-    async getPetById(petId: string): Promise<Pet> {
-        return this.petsRepository.findOne({ petId })
+    async getPetById(groomerId: string): Promise<Pet> {
+        return this.petsRepository.findOne({ groomerId })
     }
 
     async getPets(): Promise<Pet[]> {
@@ -19,7 +19,7 @@ export class PetsService {
 
     async createPet(ownerEmail: string, dogName: string, rabiesVaccine: boolean, ownerName: string): Promise<Pet> {
         return this.petsRepository.create({
-            petId: uuidv4(),
+            groomerId: uuidv4(),
             ownerEmail,
             dogName,
             breed: [],
@@ -28,7 +28,7 @@ export class PetsService {
         })
     }
 
-    async updatePet(petId: string, petUpdates: UpdatePetDto): Promise<Pet> {
-        return this.petsRepository.findOneAndUpdate({ petId }, petUpdates);
+    async updatePet(groomerId: string, petUpdates: UpdatePetDto): Promise<Pet> {
+        return this.petsRepository.findOneAndUpdate({ groomerId }, petUpdates);
     }
 }

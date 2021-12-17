@@ -1,4 +1,4 @@
 export class UpdatePetDto {
-    breed: string[]
+    breed: string[];
     age: number;
 }

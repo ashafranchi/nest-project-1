@@ -28,7 +28,7 @@ describe('PetsRepository', () => {
         petModel = moduleRef.get<PetModel>(getModelToken(Pet.name));
 
         petFilterQuery = {
-            petId: petStub().petId
+            groomerId: petStub().groomerId
         }
 
         jest.clearAllMocks();
