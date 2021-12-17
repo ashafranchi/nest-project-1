@@ -1,4 +1,4 @@
-import { Injectable } from "@nestjs/common";
+import { Inject, Injectable } from "@nestjs/common";
 import { v4 as uuidv4 } from 'uuid';
 import { UpdateGroomerDto } from "./dto/update-Groomer.dto";
 
@@ -7,7 +7,9 @@ import { GroomersRepository } from "./Groomers.repository";
 
 @Injectable()
 export class GroomersService {
-    constructor(private readonly groomersRepository: GroomersRepository) {}
+    constructor(
+        @Inject(GroomersRepository)
+        private readonly groomersRepository: GroomersRepository) {}
 
     async getGroomerById(groomerId: string): Promise<Groomer> {
         return this.groomersRepository.findOne({ groomerId })

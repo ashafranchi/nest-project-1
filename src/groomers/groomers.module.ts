@@ -8,7 +8,7 @@ import { GroomersService } from "./groomers.service"
 @Module({
     imports: [MongooseModule.forFeature([{ name: Groomer.name, schema: GroomerSchema }])],
     controllers: [GroomersController],
-    providers: [GroomersService, GroomersRepository]
+    providers: [GroomersService, GroomersRepository],
+    exports: [GroomersService, GroomersRepository]
 })
-
 export class GroomersModule {}
