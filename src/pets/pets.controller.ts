@@ -5,7 +5,7 @@ import { UpdatePetDto } from './dto/update-pet.dto';
 import { Pet } from './schemas/pet.schema';
 import { PetsService } from './pets.service';
 
-@Controller('users')
+@Controller('pets')
 export class PetsController {
   constructor(private readonly petsService: PetsService) {}
 
