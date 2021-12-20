@@ -5,8 +5,6 @@ export type PetDocument = Pet & Document;
 
 @Schema()
 export class Pet {
-    @Prop()
-    petId: string;
 
     @Prop()
     ownerName: string;

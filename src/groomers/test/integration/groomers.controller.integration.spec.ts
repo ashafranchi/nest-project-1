@@ -5,13 +5,14 @@ import { DatabaseService } from '../../../database/database.service';
 import { AppModule } from '../../../app.module';
 import { groomerStub } from '../stubs/groomer.stub';
 import { CreateGroomerDto } from 'src/groomers/dto/create-groomer.dto';
+import { HttpServer, INestApplication } from '@nestjs/common';
 
 describe('GroomersController', () => {
     let dbConnection: Connection;
-    let httpServer: any;
-    let app: any;
+    let httpServer: HttpServer;
+    let app: INestApplication;
 
-    beforeAll(async() => {
+    beforeAll(async () => {
         const moduleRef = await Test.createTestingModule({
             imports: [AppModule],
         }).compile();
@@ -34,21 +35,21 @@ describe('GroomersController', () => {
 
             expect(response.status).toBe(200);
             expect(response.body).toMatchObject([groomerStub()])
-        })      
+        })
     })
 
     describe('createGroomer', () => {
         it('should create a groomer', async () => {
-            const createGroomerDto : CreateGroomerDto = {
+            const createGroomerDto: CreateGroomerDto = {
                 groomerName: groomerStub().groomerName,
                 email: groomerStub().email,
                 age: groomerStub().age
             }
             const response = await request(httpServer).post('/groomers').send(createGroomerDto)
-    
+
             expect(response.status).toBe(201);
             expect(response.body).toMatchObject(createGroomerDto);
-    
+
             const groomer = await dbConnection.collection('groomers').findOne({ email: createGroomerDto.email });
             expect(groomer).toMatchObject(createGroomerDto);
         })
