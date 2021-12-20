@@ -1,9 +1,11 @@
 import { ApiProperty } from "@nestjs/swagger";
 
 export class UpdatePetDto {
-    @ApiProperty()
+    @ApiProperty({ type: [String] })
     breed: string[];
 
-    @ApiProperty()
+    @ApiProperty({
+        type: Number,
+    })
     age: number;
 }

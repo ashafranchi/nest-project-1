@@ -1,15 +1,23 @@
 import { ApiProperty } from "@nestjs/swagger";
 
 export class CreatePetDto {
-    @ApiProperty()
+    @ApiProperty({
+        type: String,
+    })
     ownerEmail: string;
 
-    @ApiProperty()
+    @ApiProperty({
+        type: String,
+    })
     ownerName: string;
 
-    @ApiProperty()
+    @ApiProperty({
+        type: String,
+    })
     dogName: string;
 
-    @ApiProperty()
+    @ApiProperty({
+        type: Boolean,
+    })
     rabiesVaccine: boolean;
 }

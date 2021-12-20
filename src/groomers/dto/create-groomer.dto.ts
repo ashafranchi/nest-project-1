@@ -1,12 +1,18 @@
 import { ApiProperty } from "@nestjs/swagger";
 
 export class CreateGroomerDto {
-    @ApiProperty()
+    @ApiProperty({
+        type: String,
+    })
     groomerName: string;
 
-    @ApiProperty()
+    @ApiProperty({
+        type: String,
+    })
     email: string;
 
-    @ApiProperty()
+    @ApiProperty({
+        type: Number,
+    })
     age: number;
 }

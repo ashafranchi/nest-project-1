@@ -1,15 +1,19 @@
 import { ApiProperty } from "@nestjs/swagger";
 
 export class UpdateGroomerDto {
-    @ApiProperty()
+    @ApiProperty({
+        type: Number,
+    })
     overtimeHours: number;
 
-    @ApiProperty()
+    @ApiProperty({
+        type: Number,
+    })
     starRating: number;
 
-    @ApiProperty()
+    @ApiProperty({ type: [String] })
     daysOff: string[];
 
-    @ApiProperty()
+    @ApiProperty({ type: [String] })
     allergies: string[];
 }
