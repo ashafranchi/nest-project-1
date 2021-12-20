@@ -30,11 +30,11 @@ describe('GroomersController', () => {
       let groomer: Groomer;
 
       beforeEach(async () => {
-        groomer = await groomersController.getGroomer(groomerStub().groomerId)  
+        groomer = await groomersController.getGroomer(groomerStub().groomerName)
       })
 
       test('then it should call groomersService', () => {
-        expect(groomersService.getGroomerById).toBeCalledWith(groomerStub().groomerId);
+        expect(groomersService.getGroomerById).toBeCalledWith(groomerStub().groomerName);
       })
 
       test('then is should return a groomer', () => {
@@ -97,11 +97,11 @@ describe('GroomersController', () => {
           daysOff: ["Sunday", "Monday"],
           allergies: ['Pollen']
         }
-        groomer = await groomersController.updateGroomer(groomerStub().groomerId, updateGroomerDto);
+        groomer = await groomersController.updateGroomer(groomerStub().groomerName, updateGroomerDto);
       })
 
       test('then it should call groomersService', () => {
-        expect(groomersService.updateGroomer).toHaveBeenCalledWith(groomerStub().groomerId, updateGroomerDto);
+        expect(groomersService.updateGroomer).toHaveBeenCalledWith(groomerStub().groomerName, updateGroomerDto);
       })
 
       test('then it should return a groomer', () => {

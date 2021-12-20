@@ -30,11 +30,11 @@ describe('PetsController', () => {
       let pet: Pet;
 
       beforeEach(async () => {
-        pet = await petsController.getPet(petStub().petId)  
+        pet = await petsController.getPet(petStub().dogName)
       })
 
       test('then it should call petsService', () => {
-        expect(petsService.getPetById).toBeCalledWith(petStub().petId);
+        expect(petsService.getPetById).toBeCalledWith(petStub().dogName);
       })
 
       test('then is should return a pet', () => {
@@ -96,11 +96,11 @@ describe('PetsController', () => {
           age: 21,
           breed: ["Border Collie", "Novia Scotia Duck Tolling Retriever"]
         }
-        pet = await petsController.updatePet(petStub().petId, updatePetDto);
+        pet = await petsController.updatePet(petStub().dogName, updatePetDto);
       })
 
       test('then it should call petsService', () => {
-        expect(petsService.updatePet).toHaveBeenCalledWith(petStub().petId, updatePetDto);
+        expect(petsService.updatePet).toHaveBeenCalledWith(petStub().dogName, updatePetDto);
       })
 
       test('then it should return a pet', () => {

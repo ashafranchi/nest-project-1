@@ -5,8 +5,6 @@ export type GroomerDocument = Groomer & Document;
 
 @Schema()
 export class Groomer {
-    @Prop()
-    groomerId: string;
 
     @Prop()
     groomerName: string;

@@ -7,25 +7,25 @@ import { PetsService } from './pets.service';
 
 @Controller('pets')
 export class PetsController {
-  constructor(private readonly petsService: PetsService) {}
+  constructor(private readonly petsService: PetsService) { }
 
-  @Get(':petId')
-  async getPet(@Param('petId') petId: string): Promise<Pet> {
-    return this.petsService.getPetById(petId);
+  @Get(':_id')
+  async getPet(@Param('_id') _id: string): Promise<Pet> {
+    return this.petsService.getPetById(_id);
   }
 
   @Get()
   async getPets(): Promise<Pet[]> {
-      return this.petsService.getPets();
+    return this.petsService.getPets();
   }
 
   @Post()
   async createPet(@Body() createPetDto: CreatePetDto): Promise<Pet> {
-      return this.petsService.createPet(createPetDto.ownerEmail, createPetDto.dogName, createPetDto.rabiesVaccine, createPetDto.ownerName)
+    return this.petsService.createPet(createPetDto.ownerEmail, createPetDto.dogName, createPetDto.rabiesVaccine, createPetDto.ownerName)
   }
 
-  @Patch(':petId')
-  async updatePet(@Param('petId') petId: string, @Body() updatePetDto: UpdatePetDto): Promise<Pet> {
-      return this.petsService.updatePet(petId, updatePetDto);
+  @Patch(':_id')
+  async updatePet(@Param('_id') _id: string, @Body() updatePetDto: UpdatePetDto): Promise<Pet> {
+    return this.petsService.updatePet(_id, updatePetDto);
   }
 }

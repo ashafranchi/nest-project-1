@@ -7,25 +7,25 @@ import { GroomersService } from './groomers.service';
 
 @Controller('groomers')
 export class GroomersController {
-  constructor(private readonly groomersService: GroomersService) {}
+  constructor(private readonly groomersService: GroomersService) { }
 
-  @Get(':groomerId')
-  async getGroomer(@Param('groomerId') groomerId: string): Promise<Groomer> {
-    return this.groomersService.getGroomerById(groomerId);
+  @Get(':_id')
+  async getGroomer(@Param('_id') _id: string): Promise<Groomer> {
+    return this.groomersService.getGroomerById(_id);
   }
 
   @Get()
   async getGroomers(): Promise<Groomer[]> {
-      return this.groomersService.getGroomers();
+    return this.groomersService.getGroomers();
   }
 
   @Post()
   async createGroomer(@Body() createGroomerDto: CreateGroomerDto): Promise<Groomer> {
-      return this.groomersService.createGroomer(createGroomerDto.groomerName, createGroomerDto.email, createGroomerDto.age)
+    return this.groomersService.createGroomer(createGroomerDto.groomerName, createGroomerDto.email, createGroomerDto.age)
   }
 
-  @Patch(':groomerId')
-  async updateGroomer(@Param('groomerId') groomerId: string, @Body() updateGroomerDto: UpdateGroomerDto): Promise<Groomer> {
-      return this.groomersService.updateGroomer(groomerId, updateGroomerDto);
+  @Patch(':_id')
+  async updateGroomer(@Param('_id') _id: string, @Body() updateGroomerDto: UpdateGroomerDto): Promise<Groomer> {
+    return this.groomersService.updateGroomer(_id, updateGroomerDto);
   }
 }

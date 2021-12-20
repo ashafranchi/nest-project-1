@@ -5,7 +5,6 @@ import { DatabaseService } from '../../../database/database.service';
 import { AppModule } from '../../../app.module';
 import { groomerStub } from '../stubs/groomer.stub';
 import { CreateGroomerDto } from 'src/groomers/dto/create-groomer.dto';
-import { UseFilters } from '@nestjs/common';
 
 describe('GroomersController', () => {
     let dbConnection: Connection;

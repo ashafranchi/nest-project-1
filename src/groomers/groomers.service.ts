@@ -1,18 +1,17 @@
 import { Inject, Injectable } from "@nestjs/common";
-import { v4 as uuidv4 } from 'uuid';
-import { UpdateGroomerDto } from "./dto/update-Groomer.dto";
+import { UpdateGroomerDto } from "./dto/update-groomer.dto";
 
-import { Groomer } from "./schemas/Groomer.schema";
-import { GroomersRepository } from "./Groomers.repository";
+import { Groomer } from "./schemas/groomer.schema";
+import { GroomersRepository } from "./groomers.repository";
 
 @Injectable()
 export class GroomersService {
     constructor(
         @Inject(GroomersRepository)
-        private readonly groomersRepository: GroomersRepository) {}
+        private readonly groomersRepository: GroomersRepository) { }
 
-    async getGroomerById(groomerId: string): Promise<Groomer> {
-        return this.groomersRepository.findOne({ groomerId })
+    async getGroomerById(_id: string): Promise<Groomer> {
+        return this.groomersRepository.findOne({ _id })
     }
 
     async getGroomers(): Promise<Groomer[]> {
@@ -21,14 +20,13 @@ export class GroomersService {
 
     async createGroomer(groomerName: string, email: string, age: number): Promise<Groomer> {
         return this.groomersRepository.create({
-            groomerId: uuidv4(),
             groomerName,
             email,
             age
         })
     }
 
-    async updateGroomer(groomerId: string, groomerUpdates: UpdateGroomerDto): Promise<Groomer> {
-        return this.groomersRepository.findOneAndUpdate({ groomerId }, groomerUpdates);
+    async updateGroomer(_id: string, groomerUpdates: UpdateGroomerDto): Promise<Groomer> {
+        return this.groomersRepository.findOneAndUpdate({ _id }, groomerUpdates);
     }
 }

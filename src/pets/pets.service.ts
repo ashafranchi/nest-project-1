@@ -1,5 +1,4 @@
 import { Injectable } from "@nestjs/common";
-import { v4 as uuidv4 } from 'uuid';
 import { UpdatePetDto } from "./dto/update-pet.dto";
 
 import { Pet } from "./schemas/pet.schema";
@@ -7,10 +6,10 @@ import { PetsRepository } from "./pets.repository";
 
 @Injectable()
 export class PetsService {
-    constructor(private readonly petsRepository: PetsRepository) {}
+    constructor(private readonly petsRepository: PetsRepository) { }
 
-    async getPetById(petId: string): Promise<Pet> {
-        return this.petsRepository.findOne({ petId })
+    async getPetById(_id: string): Promise<Pet> {
+        return this.petsRepository.findOne({ _id })
     }
 
     async getPets(): Promise<Pet[]> {
@@ -19,7 +18,6 @@ export class PetsService {
 
     async createPet(ownerEmail: string, dogName: string, rabiesVaccine: boolean, ownerName: string): Promise<Pet> {
         return this.petsRepository.create({
-            petId: uuidv4(),
             ownerEmail,
             dogName,
             breed: [],
@@ -28,7 +26,7 @@ export class PetsService {
         })
     }
 
-    async updatePet(petId: string, petUpdates: UpdatePetDto): Promise<Pet> {
-        return this.petsRepository.findOneAndUpdate({ petId }, petUpdates);
+    async updatePet(_id: string, petUpdates: UpdatePetDto): Promise<Pet> {
+        return this.petsRepository.findOneAndUpdate({ _id }, petUpdates);
     }
 }
