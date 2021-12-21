@@ -1,7 +1,7 @@
 import { Body, Controller, Get, Param, Patch, Post } from '@nestjs/common';
 import { CreateGroomerDto } from './dto/create-groomer.dto';
 import { UpdateGroomerDto } from './dto/update-groomer.dto';
-import { ApiResponse, ApiTags } from '@nestjs/swagger';
+import { ApiCreatedResponse, ApiTags } from '@nestjs/swagger';
 
 import { Groomer } from './schemas/groomer.schema';
 import { GroomersService } from './groomers.service';
@@ -23,6 +23,7 @@ export class GroomersController {
 
   @Post()
   @ApiCreatedResponse({
+    status: 201,
     description: 'The record has been successfully created.',
     type: Groomer,
   })

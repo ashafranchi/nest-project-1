@@ -1,8 +1,10 @@
 import { Prop, Schema, SchemaFactory } from "@nestjs/mongoose";
-import { Document } from 'mongoose';
+import { Document, startSession } from 'mongoose';
 import { ApiProperty } from '@nestjs/swagger';
 
 export type GroomerDocument = Groomer & Document;
+
+export type StarEnum = 1 | 2 | 3 | 4 | 5;
 
 @Schema()
 export class Groomer {
@@ -30,10 +32,10 @@ export class Groomer {
     overtimeHours: number;
 
     @ApiProperty({
-        type: Number,
+        enum: [1, 2, 3, 4, 5]
     })
     @Prop()
-    starRating: number;
+    starRating: StarEnum;
 
     @ApiProperty({
         type: Number,

@@ -6,7 +6,7 @@ export const groomerStub = (): Groomer => {
         email: 'example@test.com',
         age: 45,
         allergies: ['tree nuts'],
-        starRating: 4.1,
+        starRating: 4,
         daysOff: ['Wednesday', 'Saturday'],
         overtimeHours: 1.5
     }

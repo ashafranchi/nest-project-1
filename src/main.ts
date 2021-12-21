@@ -7,6 +7,7 @@ async function bootstrap() {
 
   const config = new DocumentBuilder()
     .setTitle('Paws Groomers')
+    .addTag('Bay Area Grooming Service')
     .setDescription('Groomer and Pet API')
     .setVersion('1.0')
     .build();

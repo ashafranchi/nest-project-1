@@ -1,4 +1,5 @@
 import { ApiProperty } from "@nestjs/swagger";
+import { StarEnum } from '../schemas/groomer.schema';
 
 export class UpdateGroomerDto {
     @ApiProperty({
@@ -7,9 +8,9 @@ export class UpdateGroomerDto {
     overtimeHours: number;
 
     @ApiProperty({
-        type: Number,
+        enum: [1, 2, 3, 4, 5]
     })
-    starRating: number;
+    starRating: StarEnum;
 
     @ApiProperty({ type: [String] })
     daysOff: string[];
