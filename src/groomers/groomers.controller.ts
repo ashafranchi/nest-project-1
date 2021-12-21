@@ -22,8 +22,10 @@ export class GroomersController {
   }
 
   @Post()
-  @ApiResponse({ status: 201, description: 'This groomer has been recorded.' })
-  @ApiResponse({ status: 403, description: 'Forbidden.' })
+  @ApiCreatedResponse({
+    description: 'The record has been successfully created.',
+    type: Groomer,
+  })
   async createGroomer(@Body() createGroomerDto: CreateGroomerDto): Promise<Groomer> {
     return this.groomersService.createGroomer(createGroomerDto.groomerName, createGroomerDto.email, createGroomerDto.age)
   }
