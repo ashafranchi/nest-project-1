@@ -5,11 +5,12 @@ import { DatabaseService } from '../../../database/database.service';
 import { AppModule } from '../../../app.module';
 import { petStub } from '../stubs/pet.stub';
 import { CreatePetDto } from 'src/pets/dto/create-pet.dto';
+import { HttpServer, INestApplication } from '@nestjs/common';
 
 describe('PetsController', () => {
     let dbConnection: Connection;
-    let httpServer: any;
-    let app: any;
+    let httpServer: HttpServer;
+    let app: INestApplication;
 
     beforeAll(async () => {
         const moduleRef = await Test.createTestingModule({

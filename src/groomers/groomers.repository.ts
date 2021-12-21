@@ -7,7 +7,7 @@ import { Groomer, GroomerDocument } from "./schemas/Groomer.schema";
 
 @Injectable()
 export class GroomersRepository extends EntityRepository<GroomerDocument> {
-    constructor(@InjectModel(Groomer.name) groomerModel: Model<GroomerDocument>) {
-      super(groomerModel)
-    }
+  constructor(@InjectModel(Groomer.name) groomerModel: Model<GroomerDocument>) {
+    super(groomerModel)
+  }
 }

@@ -1,10 +1,12 @@
 import { Body, Controller, Get, Param, Patch, Post } from '@nestjs/common';
 import { CreatePetDto } from './dto/create-pet.dto';
 import { UpdatePetDto } from './dto/update-pet.dto';
+import { ApiResponse, ApiCreatedResponse, ApiTags } from '@nestjs/swagger';
 
 import { Pet } from './schemas/pet.schema';
 import { PetsService } from './pets.service';
 
+@ApiTags('Pets')
 @Controller('pets')
 export class PetsController {
   constructor(private readonly petsService: PetsService) { }
@@ -20,6 +22,11 @@ export class PetsController {
   }
 
   @Post()
+  @ApiCreatedResponse({
+    status: 201,
+    description: 'The record has been successfully created.',
+    type: Pet,
+  })
   async createPet(@Body() createPetDto: CreatePetDto): Promise<Pet> {
     return this.petsService.createPet(createPetDto.ownerEmail, createPetDto.dogName, createPetDto.rabiesVaccine, createPetDto.ownerName)
   }

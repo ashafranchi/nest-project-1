@@ -92,7 +92,7 @@ describe('GroomersController', () => {
 
       beforeEach(async () => {
         updateGroomerDto = {
-          starRating: 3.5,
+          starRating: 3,
           overtimeHours: 0,
           daysOff: ["Sunday", "Monday"],
           allergies: ['Pollen']
